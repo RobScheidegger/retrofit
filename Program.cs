@@ -14,6 +14,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddDbContext<RetrofitDbContext>();
 builder.Services.AddSingleton<RetrofitImageCaptioningService>();
+builder.Services.AddSingleton<RetrofitStatusService>();
 builder.Services.AddMudServices();
 
 var app = builder.Build();
@@ -34,5 +35,8 @@ app.UseRouting();
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
+
+// TESTING
+var captioning = app.Services.GetService<RetrofitImageCaptioningService>();
 
 app.Run();
