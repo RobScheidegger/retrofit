@@ -1,0 +1,55 @@
+@page "/data"
+
+<PageTitle>Data</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">
+    <MudIcon Icon="@Icons.Material.Filled.DataObject" Size="@MudBlazor.Size.Large" Class="mr-2" /> Data Operations
+</MudText>
+
+<MudGrid Spacing="16">
+    <MudCard>
+        <MudCardHeader>
+            <MudText Typo="Typo.h4">Ingest Data</MudText>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudInputString @bind-Value="IngestionPath" />
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit" OnClick="IngestData">
+                Ingest
+            </MudButton>
+        </MudCardActions>
+    </MudCard>
+
+    <MudCard Style="p-4">
+        <MudCardHeader>
+            <MudText Typo="Typo.h4">Caption Images</MudText>
+        </MudCardHeader>
+        <MudCardContent>
+            Captions all images in the database that are currently not captioned.
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit" OnClick="CaptionImages">
+                Caption Images
+            </MudButton>
+        </MudCardActions>
+    </MudCard>
+</MudGrid>
+
+
+@code {
+    [Inject]
+    public required Services.RetrofitImageCaptioningService CaptioningService { get; set; }
+
+    private string IngestionPath { get; set; } = string.Empty;
+
+    private void IngestData()
+    {
+        Console.WriteLine("Path: " + IngestionPath);
+    }
+
+    private void CaptionImages()
+    {
+
+    }
+}

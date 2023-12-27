@@ -13,6 +13,7 @@ StaticWebAssetsLoader.UseStaticWebAssets(builder.Environment, builder.Configurat
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddDbContext<RetrofitDbContext>();
+builder.Services.AddDbContextFactory<RetrofitDbContext>();
 builder.Services.AddSingleton<RetrofitImageCaptioningService>();
 builder.Services.AddSingleton<RetrofitStatusService>();
 builder.Services.AddMudServices();
